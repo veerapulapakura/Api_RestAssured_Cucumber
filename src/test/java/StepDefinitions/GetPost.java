@@ -14,16 +14,20 @@ public class GetPost {
 
     @Given("^i perform the GET operation of the \"([^\"]*)\"$")
     public void iPerformTheGETOperationOfThe(String url) throws Throwable {
-               given().contentType(ContentType.JSON);
-           }
+
+    }
 
     @And("^I perform GET for the post number \"([^\"]*)\"$")
     public void iPerformGETForThePostNumber(String postNumber) throws Throwable {
-                when().get(String.format("http://localhost:3000/posts/%s",postNumber)).
-                then().body("author", is("typicode"));
-           }
+        BddStyleMethod.simpleGetPostMethodBDD("1");
+    }
 
     @Then("^I should see the author name as \"([^\"]*)\"$")
     public void iShouldSeeTheAuthorNameAs(String arg0) throws Throwable {
-                     }
     }
+
+    @Then("^I should see the author names$")
+    public void iShouldSeeTheAuthorNames() {
+        BddStyleMethod.checkContainsCollection();
+    }
+}
