@@ -8,3 +8,12 @@ Feature: Verify different get operation using RestAssured
   Scenario: Verify contents of all collection
     Given i perform the GET operation of the "/post"
     Then I should see the author names
+
+  Scenario: Verify contents of all collection with path parameter
+    Given i perform the GET operation of the "/post"
+    Then I should see the correct GET value
+
+
+  Scenario: Verify contents of all collection with query parameter
+    Given i perform the GET operation of the "/post"
+    Then I should see the correct GET value of that query parameter
