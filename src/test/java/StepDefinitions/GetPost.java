@@ -30,4 +30,14 @@ public class GetPost {
     public void iShouldSeeTheAuthorNames() {
         BddStyleMethod.checkContainsCollection();
     }
+
+    @Then("^I should see the correct GET value$")
+    public void iShouldSeeTheCorrectGETValue() {
+        BddStyleMethod.performGetWithPathParameter();
+    }
+
+    @Then("^I should see the correct GET value of that query parameter$")
+    public void iShouldSeeTheCorrectGETValueOfThatQueryParameter() {
+        BddStyleMethod.performGetWithQueryParameter();
+    }
 }
