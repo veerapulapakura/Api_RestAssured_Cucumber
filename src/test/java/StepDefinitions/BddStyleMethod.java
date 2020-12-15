@@ -1,6 +1,9 @@
 package StepDefinitions;
 
 import io.restassured.http.ContentType;
+import org.hamcrest.core.Is;
+
+import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -31,5 +34,22 @@ public class BddStyleMethod {
                 queryParam("id", 2).
                 when().get("http://localhost:3000/posts").
                 then().body("title", contains("Venkata")).statusCode(200);
+    }
+
+    public static void performPostithBodyParameter() {
+
+        HashMap<String,String> posting  = new HashMap<>();
+        posting.put("id", "7");
+        posting.put("title", "Mahitha");
+        posting.put("author", "Manogna");
+        System.out.println("Veera");
+        given()
+                .contentType(ContentType.JSON).
+                with()
+                .body(posting).
+                when()
+                .post("http://localhost:3000/posts").
+                then()
+                .body("title", Is.is("Mahitha"));
     }
 }

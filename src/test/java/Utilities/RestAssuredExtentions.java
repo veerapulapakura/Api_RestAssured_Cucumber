@@ -32,11 +32,18 @@ public class RestAssuredExtentions {
 
     public static ResponseOptions<Response> GetOps(String url )  {
         try {
-           return Request.get(new URI(url));
+            return Request.get(new URI(url));
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
         return null;
     }
+
+    public static ResponseOptions<Response> PostWithBodyAndPathParameter(String url, Map<String,String> pathParams,Map<String,String> body) {
+        Request.pathParams(pathParams);
+        Request.body(body);
+        return Request.post(url);
+    }
+
 
 }
