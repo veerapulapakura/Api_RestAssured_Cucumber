@@ -6,7 +6,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseOptions;
 import io.restassured.specification.RequestSpecification;
-import org.junit.Before;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -54,5 +53,11 @@ public class RestAssuredExtentions {
     public static ResponseOptions<Response> DeleteOpsWithPathParams(String url, Map<String, String> pathParams) {
         Request.pathParams(pathParams);
         return Request.delete(url);
+    }
+
+    public static Response PUTOpsWithBodyAndPathParams(String url, Map<String, String> body, Map<String, String> pathParams) {
+        Request.pathParams(pathParams);
+        Request.body(body);
+        return Request.put(url);
     }
 }

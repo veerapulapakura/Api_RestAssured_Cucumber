@@ -10,5 +10,5 @@ Feature: Verify different Delete operation using RestAssured
       | 7      |
     And I perform GET operation with path parameter for "/posts/{postid}"
       | postid |
-      | 6      |
+      | 7      |
     Then I "should not" see the body with title as "Ratna kumar"

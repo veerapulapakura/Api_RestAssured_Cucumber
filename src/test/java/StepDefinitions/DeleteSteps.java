@@ -22,7 +22,6 @@ public class DeleteSteps {
     @Given("^I ensure to Perform POST operation for \"([^\"]*)\" with body as$")
     public void iEnsureToPerformPOSTOperationForWithBodyAs(String url, DataTable table) throws Throwable {
         var data = table.raw();
-
         Map<String, String> body = new HashMap<>();
         body.put("id", data.get(1).get(0));
         body.put("title", data.get(1).get(1));
