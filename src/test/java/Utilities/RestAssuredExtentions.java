@@ -25,9 +25,10 @@ public class RestAssuredExtentions {
 
     }
 
-    public static void  GetOpsWithParams(String url , Map<String,String> pathParams) throws URISyntaxException  {
+    public static ResponseOptions<Response>  GetOpsWithParams(String url , Map<String,String> pathParams) throws URISyntaxException  {
         Request.pathParams(pathParams);
-        Request.get(new URI(url));
+        //Request.get(new URI(url));
+        return Request.get(url);
     }
 
     public static ResponseOptions<Response> GetOps(String url )  {
@@ -45,5 +46,13 @@ public class RestAssuredExtentions {
         return Request.post(url);
     }
 
+    public static ResponseOptions<Response> PostWithBodyAndPathParameter(String url,Map<String,String> body) {
+        Request.body(body);
+        return Request.post(url);
+    }
 
+    public static ResponseOptions<Response> DeleteOpsWithPathParams(String url, Map<String, String> pathParams) {
+        Request.pathParams(pathParams);
+        return Request.delete(url);
+    }
 }

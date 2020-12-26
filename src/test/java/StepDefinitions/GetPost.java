@@ -83,4 +83,6 @@ public class GetPost {
     public void iShouldSeeTheBodyHasNameAs(String name) throws Throwable {
         assertThat(response.getBody().jsonPath().get("name"), equalTo(name));
     }
+
+
 }
